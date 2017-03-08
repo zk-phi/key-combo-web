@@ -1,0 +1,37 @@
+* key-combo-web.el
+
+web-mode で言語ごとに key-combo のキーバインド変える
+
+per-language key(-combo) bindings for web-mode
+
+** Screencast
+
+Example: JS parts and DOM parts in a JSX
+
+[[screencast.gif]]
+
+** Dependencies
+
+- =key-combo=
+- =web-mode=
+
+** Usage
+
+Load this script
+
+: (require 'key-combo-web)
+
+and define keybinds like =key-combo-define= for each languages
+
+: (key-combo-web-define "jsx" (kbd "<") '(" < " "<`!!'>"))
+: (key-combo-web-define "jsx" (kbd "&") '(" & " " && "))
+: (key-combo-web-define "jsx" (kbd ">") " > ")
+: (key-combo-web-define "jsx" (kbd "</") 'web-mode-element-close)
+: (key-combo-web-define "jsx-html" (kbd "<") '("<`!!'>" "&lt;" "<"))
+: (key-combo-web-define "jsx-html" (kbd ">") '("&gt;" ">"))
+: (key-combo-web-define "jsx-html" (kbd "&") '("&amp;" "&"))
+: (key-combo-web-define "css" (kbd "~") " ~ ")
+
+then turn =key-combo-mode= on
+
+: (add-hook 'web-mode-hook 'key-combo-mode)
