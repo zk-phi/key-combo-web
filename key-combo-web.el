@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; Language-specific key-combo for web-mode.
 
 ;; Requirements: web-mode, key-combo
